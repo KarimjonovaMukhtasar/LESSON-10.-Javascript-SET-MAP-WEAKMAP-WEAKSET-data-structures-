@@ -18,3 +18,22 @@ Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 Constraints:
 0 <= n <= 30
 */
+function fibonacci(n){
+    let f1 = 0
+    let f2 = 1
+    if(n === 0){
+        return f1
+    }
+    if(n === 1){
+        return f2
+    }
+    let result
+    for(let i=2; i<=n; i++){
+        result  = f1 + f2
+        f1 = f2
+        f2 = result
+    }
+    return result
+}
+let num = Number(prompt("Enter the number"))
+alert(fibonacci(num))

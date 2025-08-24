@@ -30,3 +30,30 @@ console.log(afterNYears({
 }, 5));
 // Natija: { "Genie" : 1005, "Joe" : 45 }
 */
+function afterNYears(obj, num){
+  num = Math.abs(num)
+  let newMap = new Map(Object.entries(obj))
+  let result = new Map()
+  for(let [key,value] of newMap){
+    result.set(key, value + num)
+  }
+  console.log(result)
+}
+console.log(afterNYears({
+  "Joel" : 32,
+  "Fred" : 44,
+  "Reginald" : 65,
+  "Susan" : 33,
+  "Julian" : 13
+}, 1));
+console.log(afterNYears({
+  "Baby" : 2,
+  "Child" : 8,
+  "Teenager" : 15,
+  "Adult" : 25,
+  "Elderly" : 71
+}, 19));
+console.log(afterNYears({
+  "Genie" : 1000,
+  "Joe" : 40
+}, 5));

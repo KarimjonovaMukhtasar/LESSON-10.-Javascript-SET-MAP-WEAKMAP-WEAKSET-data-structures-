@@ -15,6 +15,24 @@ Explanation: There are three ways to climb to the top.
 2. 1 step + 2 steps
 3. 2 steps + 1 step
 Constraints:
-
 1 <= n <= 45
 */
+function stairs(n){
+    let first = 1
+    let second = 2
+    if(n === 1){
+        return 1
+    }
+    if(n === 2){
+        return 2
+    }
+    let result
+    for(let i=3; i<=n; i++){
+        result  = first + second
+        first = second
+        second = result
+    }
+    return result
+}
+let num = Number(prompt("Enter the number of stairs"))
+alert(stairs(num))

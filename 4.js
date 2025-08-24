@@ -1,6 +1,6 @@
 /* 2. Masala
-students setidan har bir talabaning o'rtacha ballarini hisoblang va shundan so'ng eng yuqori o'rtacha ballga ega bo'lgan talaba(talabalar)ni qaytaring. Agar bir nechta talabalar eng yuqori o'rtacha ballga ega bo'lsa, ularning barchasi natijada qaytaring
-
+students setidan har bir talabaning o'rtacha ballarini hisoblang va shundan so'ng eng yuqori o'rtacha ballga ega bo'lgan talaba(talabalar)ni qaytaring.
+ Agar bir nechta talabalar eng yuqori o'rtacha ballga ega bo'lsa, ularning barchasi natijada qaytaring
 const students = new Set([
   { name: "Alice", scores: [90, 85, 92] },
   { name: "Bob", scores: [75, 80, 85] },
@@ -12,3 +12,25 @@ Result
   { name: 'Jack', average: 100 }
 ]
 */
+function maxaverage(set){
+  let max = 0
+  let firstname = ""
+  let sum = 0
+  let avg = 0
+  for(let key of set){
+    sum = key.scores.reduce((acc,cur) => acc + cur, 0)
+    avg = sum/key.scores.length
+    if(avg > max){
+      max = avg
+      firstname = key.name
+    }
+  }
+  return `name: ${firstname}, average: ${max}`
+}
+const students = new Set([
+  { name: "Alice", scores: [90, 85, 92] },
+  { name: "Bob", scores: [75, 80, 85] },
+  { name: "Charlie", scores: [90, 95, 85] },
+  { name: "Jack", scores: [100, 100, 100] }
+]);
+alert(maxaverage(students))
